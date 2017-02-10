@@ -2341,10 +2341,6 @@ static void lcd_settings_menu()
     MENU_ITEM(function, MSG_SILENT_MODE_ON, lcd_silent_mode_set);
   }
   
-	if (!isPrintPaused && !homing_flag)
-	{
-		MENU_ITEM(submenu, MSG_BABYSTEP_Z, lcd_babystep_z);//8
-	}
 	MENU_ITEM(submenu, MSG_LANGUAGE_SELECT, lcd_language_menu);
 
   if (card.ToshibaFlashAir_isEnabled()) {
@@ -2383,6 +2379,10 @@ MENU_ITEM(function, MSG_CALIBRATE_BED, lcd_mesh_calibration);
     // "Mesh Bed Leveling"
     MENU_ITEM(submenu, MSG_MESH_BED_LEVELING, lcd_mesh_bedleveling);
 #endif
+    if (!isPrintPaused && !homing_flag)
+    {
+      MENU_ITEM(submenu, MSG_BABYSTEP_Z, lcd_babystep_z);//8
+    }
     MENU_ITEM(gcode, MSG_AUTO_HOME, PSTR("G28 W"));
     MENU_ITEM(submenu, MSG_BED_CORRECTION_MENU, lcd_adjust_bed);
     MENU_ITEM(submenu, MSG_SHOW_END_STOPS, menu_show_end_stops);

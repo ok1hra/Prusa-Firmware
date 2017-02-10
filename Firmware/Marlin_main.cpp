@@ -1176,6 +1176,17 @@ void setup()
   // Store the currently running firmware into an eeprom,
   // so the next time the firmware gets updated, it will know from which version it has been updated.
   update_current_firmware_version_to_eeprom();
+
+  lcd.clear();
+  lcd.setCursor((LCD_WIDTH-14)/2, 0);
+  lcd.print("Original Prusa");
+  lcd.setCursor((LCD_WIDTH-6)/2, 1);
+  lcd.print("i3 MK2");
+  lcd.setCursor((LCD_WIDTH-2)/2, 2);
+  lcd.print("by");
+  lcd.setCursor((LCD_WIDTH-11)/2, 3);
+  lcd.print("Josef Prusa");
+  delay(5000);
 }
 
 void trace();
